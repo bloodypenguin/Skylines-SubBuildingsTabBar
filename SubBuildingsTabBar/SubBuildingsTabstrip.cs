@@ -31,7 +31,6 @@ namespace SubBuildingsTabBar
         {
             if (buildingId == 0)
             {
-                _idList = null;
                 RemoveAllTabs();
                 return;
             }
@@ -123,12 +122,15 @@ namespace SubBuildingsTabBar
             }
         }
 
-        private void RemoveAllTabs()
+        public void RemoveAllTabs()
         {
+            _idList = null;
             if (tabs == null || tabs.Count == 0)
             {
                 return;
             }
+            var button = GameObject.Find("RelocateAction").GetComponent<UIButton>();
+            button.Show();
             foreach (var child in tabs.Clone().Where(child => child != null))
             {
                 child.Hide();
@@ -174,6 +176,15 @@ namespace SubBuildingsTabBar
                 {
                     locale.AddLocalizedString(key, string.Empty);
                 }
+            }
+            var button = GameObject.Find("RelocateAction").GetComponent<UIButton>();
+            if (selectedIndex == 0)
+            {
+                button.Show();
+            }
+            else
+            {
+                button.Hide();
             }
             DefaultTool.OpenWorldInfoPanel(new InstanceID { Building = buildingId }, new Vector2(0, 0));
         }

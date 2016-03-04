@@ -34,9 +34,15 @@ namespace SubBuildingsTabBar
             {
                 Object.Destroy(go);
             }
+            tabs?.RemoveAllTabs();
+        }
+
+        public override void OnReleased()
+        {
+            base.OnReleased();
             if (tabs != null)
             {
-                Object.Destroy(tabs);
+                Object.Destroy(tabs.gameObject);
                 tabs = null;
             }
         }
