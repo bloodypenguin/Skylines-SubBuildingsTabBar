@@ -18,10 +18,10 @@ namespace SubBuildingsTabBar
 
         public void Awake()
         {
-            zonedPanelUi = UIView.Find<UIPanel>("(Library) ZonedBuildingWorldInfoPanel");
+            zonedPanelUi = GameObject.Find("(Library) ZonedBuildingWorldInfoPanel").GetComponent<UIPanel>();
             zonedPanelUi.eventVisibilityChanged += ZonedPanel_eventVisibilityChanged;
 
-            servicePanelUi = UIView.Find<UIPanel>("(Library) CityServiceWorldInfoPanel");
+            servicePanelUi = GameObject.Find("(Library) CityServiceWorldInfoPanel").GetComponent<UIPanel>();
             servicePanelUi.eventVisibilityChanged += ServicePanel_eventVisibilityChanged;
             servicePanelUi.size = zonedPanelUi.size;
             servicePanel = servicePanelUi.gameObject.transform.GetComponentInChildren<CityServiceWorldInfoPanel>();
