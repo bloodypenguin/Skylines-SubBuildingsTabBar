@@ -1,5 +1,7 @@
 ﻿using ColossalFramework.UI;
 using ICities;
+using SubBuildingsTabBar.Detour;
+using SubBuildingsTabBar.Redirection;
 using UnityEngine;
 
 namespace SubBuildingsTabBar
@@ -9,6 +11,12 @@ namespace SubBuildingsTabBar
         private const string GO_NAME = "SubBuildingsMonitor";
         private static SubBuildingsTabstrip tabs;
 
+
+        public override void OnCreated(ILoading loading)
+        {
+            base.OnCreated(loading);
+            Redirector<TransportStationAIDetour>.Deploy();
+        }
 
         public override void OnLevelLoaded(LoadMode mode)
         {
@@ -40,6 +48,7 @@ namespace SubBuildingsTabBar
         public override void OnReleased()
         {
             base.OnReleased();
+            Redirector<TransportStationAIDetour>.Revert();
             if (tabs != null)
             {
                 Object.Destroy(tabs.gameObject);

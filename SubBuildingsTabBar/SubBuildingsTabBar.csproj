@@ -28,8 +28,21 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Detour\TransportStationAIDetour.cs" />
+    <Compile Include="Redirection\AssemblyRedirector.cs" />
+    <Compile Include="Redirection\Attributes\IgnoreConditionAttribute.cs" />
+    <Compile Include="Redirection\Attributes\RedirectAttribute.cs" />
+    <Compile Include="Redirection\Attributes\RedirectMethodAttribute.cs" />
+    <Compile Include="Redirection\Attributes\RedirectReverseAttribute.cs" />
+    <Compile Include="Redirection\Attributes\TargetTypeAttribute.cs" />
+    <Compile Include="Redirection\Extensions\TypeExtension.cs" />
+    <Compile Include="Redirection\RedirectionHelper.cs" />
+    <Compile Include="Redirection\RedirectionUtil.cs" />
+    <Compile Include="Redirection\Redirector.cs" />
+    <Compile Include="Redirection\Tuple.cs" />
     <Compile Include="SubBuildingsTabstrip.cs" />
     <Compile Include="LoadingExtension.cs" />
     <Compile Include="Mod.cs" />

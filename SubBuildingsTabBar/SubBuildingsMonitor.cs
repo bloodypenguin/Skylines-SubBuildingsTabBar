@@ -75,7 +75,7 @@ namespace SubBuildingsTabBar
 
         public void ServicePanel_eventVisibilityChanged(UIComponent component, bool value)
         {
-            if (!value)
+            if (Tabs == null || !value)
             {
                 return;
             }
@@ -85,7 +85,7 @@ namespace SubBuildingsTabBar
 
         public void ZonedPanel_eventVisibilityChanged(UIComponent component, bool value)
         {
-            if (!value)
+            if (Tabs == null || !value)
             {
                 return;
             }
